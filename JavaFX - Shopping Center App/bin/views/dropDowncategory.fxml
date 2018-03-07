@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="540.0" prefWidth="561.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DropDownCategory">
+   <children>
+      <ChoiceBox fx:id="catChoiceBox" layoutX="107.0" layoutY="116.0" prefWidth="150.0" />
+      <Button fx:id="dropdownOkButton" layoutX="381.0" layoutY="116.0" mnemonicParsing="false" onAction="#dropdownOkClick" text="ok" />
+      <Label layoutX="168.0" layoutY="30.0" prefHeight="17.0" prefWidth="150.0" text="Shop by category" />
+      <Label layoutX="71.0" layoutY="86.0" prefHeight="17.0" prefWidth="235.0" text="Click on the arrow to choose your category" />
+   </children>
+</AnchorPane>
