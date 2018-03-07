@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.login_controller">
+   <children>
+      <AnchorPane layoutX="23.0" layoutY="14.0" prefHeight="448.0" prefWidth="509.0">
+         <children>
+            <TextField fx:id="userIdText" layoutX="180.0" layoutY="275.0" prefHeight="25.0" prefWidth="176.0" promptText="Please choose your username" />
+            <PasswordField fx:id="passwordText" layoutX="180.0" layoutY="308.0" prefHeight="25.0" prefWidth="176.0" promptText="Please choose your password" />
+            <Label layoutX="63.0" layoutY="35.0" prefHeight="33.0" prefWidth="354.0" text="Welcome to Shopping Center Application" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font></Label>
+            <Label layoutX="67.0" layoutY="312.0" text="Password:" />
+            <Label layoutX="66.0" layoutY="279.0" text="Username:" />
+            <Button fx:id="LoginOkButton" layoutX="180.0" layoutY="389.0" mnemonicParsing="false" onAction="#loginclickok" text="Register" />
+            <Button fx:id="LoginCancelButton" layoutX="268.0" layoutY="389.0" mnemonicParsing="false" onAction="#LoginCancelClick" prefHeight="25.0" prefWidth="53.0" text="Reset" />
+            <Label layoutX="64.0" layoutY="78.0" prefHeight="33.0" prefWidth="232.0" text="Please register here as a new user !">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="129.0" text="Full Name:" textAlignment="JUSTIFY" />
+            <TextField fx:id="userIdText1" layoutX="180.0" layoutY="125.0" prefHeight="25.0" prefWidth="176.0" promptText="Please enter your full name" />
+            <Label layoutX="66.0" layoutY="345.0" text="Reenter Password:" />
+            <PasswordField fx:id="passwordText1" layoutX="180.0" layoutY="341.0" prefHeight="25.0" prefWidth="176.0" promptText="Please confirm your password" />
+            <Label layoutX="64.0" layoutY="162.0" text="Contact Details:" />
+            <TextField fx:id="userIdText111" layoutX="180.0" layoutY="158.0" prefHeight="25.0" prefWidth="176.0" promptText="Please enter your mobile no" />
+            <Label layoutX="65.0" layoutY="225.0" text="Address:" />
+            <TextField fx:id="userIdText1111" layoutX="180.0" layoutY="225.0" prefHeight="48.0" prefWidth="176.0" promptText="Please enter your address" />
+            <Label layoutX="65.0" layoutY="191.0" text="Email ID:" />
+            <TextField fx:id="userIdText1112" layoutX="180.0" layoutY="187.0" prefHeight="25.0" prefWidth="176.0" promptText="Please enter your email ID" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
