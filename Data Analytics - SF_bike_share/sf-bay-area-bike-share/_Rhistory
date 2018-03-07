@@ -1,0 +1,255 @@
+hist(rnorm(100))
+hist(budget(100))
+a <-10
+b <-20
+c=a+b
+plot (c(10))
+a <-10:20
+b <-20:30
+plot (a,b)
+hist(a,b)
+hist(rnorn(a,b)
+hist(rnorm(a,b))
+hist(rnorm(c)
+hist(rnorm(c))
+c
+clear
+new <-"char"
+class(new)
+New variable is of type -- class(new)
+library(fSeries)
+utils:::menuInstallPkgs()
+q()
+group60_final_station=group60_final_station[sample(nrow(mydata)),]
+q()
+library(ggplot2)
+library(data.table)
+library(bit64)
+library(sqldf)
+library(gridExtra)
+my_trip = fread("trip.csv")
+my_station = fread("station.csv")
+my_trip = fread("trip.csv")
+my_station = fread("station.csv")
+Join_trips = data.table(sqldf("SELECT ta.duration, ta.start_date as date, ta.subscription_type, ta.zip_code, sa.id as st_id,sa.city as city FROM trip ta LEFT JOIN station sa ON ta.start_station_id=sa.id ")
+)
+Join_trips = data.table(sqldf("SELECT ta.duration, ta.start_date as date, ta.subscription_type, ta.zip_code, sa.id as st_id,sa.city as city FROM my_trip ta LEFT JOIN station sa ON ta.start_station_id=sa.id "))
+Join_trips = data.table(sqldf("SELECT ta.duration, ta.start_date as date, ta.subscription_type, ta.zip_code, sa.id as st_id,sa.city as city FROM my_trip ta LEFT JOIN my_station sa ON ta.start_station_id=sa.id "))
+Join_trips = Join_trips[, dates   := sapply(date, function(a) strsplit(a, " ")[[1]][1]) ]
+Join_trips = Join_trips[, times   := sapply(date, function(a) strsplit(a, " ")[[1]][2]) ]
+Join_trips = Join_trips[, hours   := sapply(times, function(a) strsplit(a, ":")[[1]][1])]
+Join_trips$hours = as.numeric(Join_trips$hours)
+Join_trips = Join_trips[, minutes := sapply(times, function(a) strsplit(a, ":")[[1]][2])]
+Join_trips$minutes = as.numeric(Join_trips$minutes)
+Join_trips = Join_trips[, month := sapply(dates, function(a) as.numeric(strsplit(a, "/")[[1]][1]))]
+Join_trips = Join_trips[, day   := sapply(dates, function(a) as.numeric(strsplit(a, "/")[[1]][2]))]
+Join_trips = Join_trips[, year  := sapply(dates, function(a) as.numeric(strsplit(a, "/")[[1]][3]))]
+Join_trips = Join_trips[, weekday := sapply(dates , function(x) weekdays(as.Date(x,"%m/%d/%Y"))) ]
+Join_trips = Join_trips[, c("date", "times") := NULL]
+Join_trips = Join_trips[, weekend := ifelse(weekday %in% c("Sunday", "Saturday"), 1, 0)]
+Join_trips = Join_trips[month %in% c(12,1,2), season:="Win"]
+Join_trips = Join_trips[month %in% c(3:5), season:="Spr"]
+Join_trips = Join_trips[month %in% c(6:8),season:="Sum"]
+Join_trips = Join_trips[month %in% c(9:11), season:="Aut"]
+summary(Join_trips[,duration/60])
+hour_mytrips = Join_trips[duration <= 60*60, ]
+day_mytrips = Join_trips[duration <= 24*60*60, ]
+round(nrow(hour_mytrips)/nrow(Join_trips)*100, 2)
+round(nrow(day_mytrips)/nrow(Join_trips)*100, 2)
+Hours=hist(hour_mytrips[city=='San Francisco', duration/60], breaks=100, xlab="Minutes",ylab="Bicycle Trip Frequency", main="Fig. 1: 1  Distribution of the trips duration with Hour",col="green" )
+my_trip = fread("trip.csv")
+my_station = fread("station.csv")
+Join data on stations to trips
+Join_trips = data.table(sqldf("SELECT ta.duration, ta.start_date as date, ta.subscription_type, ta.zip_code, sa.id as st_id,sa.city as city FROM my_trip ta LEFT JOIN my_station sa ON ta.start_station_id=sa.id "))
+Splitting the  date variable into month, day and year variables:
+Join_trips = Join_trips[, dates   := sapply(date, function(a) strsplit(a, " ")[[1]][1]) ]
+Join_trips = Join_trips[, times   := sapply(date, function(a) strsplit(a, " ")[[1]][2]) ]
+Join_trips = Join_trips[, hours   := sapply(times, function(a) strsplit(a, ":")[[1]][1])]
+Join_trips$hours = as.numeric(Join_trips$hours)
+Join_trips = Join_trips[, minutes := sapply(times, function(a) strsplit(a, ":")[[1]][2])]
+Join_trips$minutes = as.numeric(Join_trips$minutes)
+# Split date variable into month, day and year variables
+Join_trips = Join_trips[, month := sapply(dates, function(a) as.numeric(strsplit(a, "/")[[1]][1]))]
+Join_trips = Join_trips[, day   := sapply(dates, function(a) as.numeric(strsplit(a, "/")[[1]][2]))]
+Join_trips = Join_trips[, year  := sapply(dates, function(a) as.numeric(strsplit(a, "/")[[1]][3]))]
+# Add a "day of week" variable
+Join_trips = Join_trips[, weekday := sapply(dates , function(x) weekdays(as.Date(x,"%m/%d/%Y"))) ]
+# Clean up
+Join_trips = Join_trips[, c("date", "times") := NULL]
+Join_trips = Join_trips[, weekend := ifelse(weekday %in% c("Sunday", "Saturday"), 1, 0)]
+# Create a variable for season
+Join_trips = Join_trips[month %in% c(12,1,2), season:="Win"]
+Join_trips = Join_trips[month %in% c(3:5), season:="Spr"]
+Join_trips = Join_trips[month %in% c(6:8),season:="Sum"]
+Join_trips = Join_trips[month %in% c(9:11), season:="Aut"]
+summary(Join_trips[,duration/60])
+hour_mytrips = Join_trips[duration <= 60*60, ]
+day_mytrips = Join_trips[duration <= 24*60*60, ]
+round(nrow(hour_mytrips)/nrow(Join_trips)*100, 2)
+round(nrow(day_mytrips)/nrow(Join_trips)*100, 2)
+Hours=hist(hour_mytrips[city=='San Francisco', duration/60], breaks=100, xlab="Minutes",ylab="Bicycle Trip Frequency", main="Fig. 1: 1  Distribution of the trips duration with Hour",col="green" )
+Day= hist(day_mytrips[city=='San Francisco', duration/60/60], breaks=1000, xlab="Hours",ylab="Bicycle Trip Frequency", main="Fig. 2: 1  Distribution of the trips duration with Day",col="red")
+source("C:\\Users\\shashank\\Desktop\\Q1.R")
+save.image("C:\\Users\\shashank\\Desktop\\q1")
+#Average trip duration in minutes by weekdays/weekends and by city
+day_duration = hour_mytrips[, mean(duration)/60, list(weekend, city)]
+day_duration = day_duration[, weekend:=as.factor(weekend)]
+day_duration = day_duration[, city:=as.factor(city)]
+ggplot(data= day_duration, aes(x= weekend, y=V1, fill=city)) +
+geom_bar(stat="identity", position=position_dodge(), colour="dark red") +
+ggtitle("Workweek/weekend Mean Trip Duration") +
+ xlab(" Weekend= 1 VS Workweek = 0 ")+
+ ylab("Mean Trip Duration in Minutes.")
+save.image("C:\\Users\\shashank\\Desktop\\Q2")
+library(lubridate)
+library(dplyr)
+library(Hmisc)
+library(reshape2)
+library(GGally)
+utils:::menuInstallPkgs()
+library(GGally)
+trip_data <- read.csv("trip.csv")
+weather_data <- read.csv("weather.csv")
+station_data <- read.csv("station.csv")
+weather_data$date <- mdy(weather_data$date)
+trip_data$start_date <- mdy_hm(trip_data$start_date)
+trip_data$end_date <- mdy_hm(trip_data$end_date)
+trip_data$date <- trip_data$start_date
+trip_data$date <- as.Date(trip_data$date)
+trip_data$zip_code <- as.numeric(levels(trip_data$zip_code))[trip_data$zip_code]
+trip_data$date <- as.Date(trip_data$start_date)
+ trip_data$id2 <- trip_data$id
+ trip_data$id <- trip_data$start_station_id
+ trip_data <- left_join(trip_data, station_data, by = c ("id"))
+zip_code <- unique(weather_data$zip_code)
+city <- c ("San Francisco", "Redwood City", "Palo Alto", "Mountain View", "San Jose")
+index <- cbind(city, zip_code)
+weather_data <- merge(weather_data, index, by = "zip_code")
+ trip_data <- left_join(trip_data,weather_data, by = c("date", "city"))
+rm("weather_data", "station_data", "index", "city", "zip_code")
+ trip_data$durZ <- scale(trip_data$duration, center = TRUE, scale = TRUE)
+ length(which(trip_data$durZ > 3 | trip_data$durZ < -3))
+daytrips <- trip_data[trip_data$durZ <= 3,] 
+daytrips <- daytrips[daytrips$durZ >= -3,]
+trip_data$weekend <- as.factor(wday(trip_data$date))
+trip_data$weekend <- (trip_data$weekend == 1 | trip_data$weekend == 7)
+trip_data$weekend <- factor(trip_data$weekend, labels = c("Weekday", "Weekend"))
+trip_data$events <- tolower(trip_data$events)
+trip_data$events <- factor(trip_data$events)
+TM <- melt(trip_data[,c(1,22,25,28,31,37)], id.vars = "id")
+ggplot(TM,aes(x = value)) + 
+         facet_wrap(~variable,  scales = "free") + 
+         geom_histogram(color = "red", alpha = 0.9)+
+         ylab("Trips Between AUG-13 and AUG-15") +
+         xlab("") +
+         theme(axis.text.x = element_text(angle = 45, hjust = 1))
+TM1 <- melt(trip_data[,c(12,22,25,28,31,37)], id.vars = "date")
+ggplot(TM1, aes(x = date, y = value)) +
+geom_bar(color = "Green", stat="identity") +
+facet_wrap(~variable, scales = "free") +
+theme(axis.text.x = element_text(angle = 45, hjust = 1)) +            ylab("")
+ggplot(trip_data, aes(mean_temperature_f)) + 
+        geom_bar(stat = "count", aes(fill = weekday), position = "dodge") +
+        facet_wrap(~subscription_type, scales = "free_y") +
+        ylab("Total number of bicycle trips") +
+        xlab("Average Day Temperature") + 
+        ggtitle("Bicycle Trips VS Temp") +
+        theme_light()
+ggplot(trip_data, aes(mean_humidity)) + 
+        geom_bar(stat = "count", aes(fill = weekend), position = "dodge") +
+        facet_wrap(~subscription_type, scales = "free_y") +
+        ylab("Bicycle trips") +
+        xlab("Average DAY humidity") + 
+        ggtitle("Humidity vs.Bicycle Trips")
+    options(repr.plot.width=5, repr.plot.height=2.5)
+options(repr.plot.width=5, repr.plot.height=2.5)
+    ggplot(trip_data, aes(mean_temperature_f, mean_humidity)) + 
+        geom_bar(stat=”count” aes(fill = mean_temperature_f), position = "dodge")+ 
+        xlab("Mean day temperature") +
+        ylab("Mean Day humidity ") + 
+        ggtitle("Humidity vs. Temperature") +
+        theme_light()
+  options(repr.plot.width=8, repr.plot.height=4)
+    ggplot(trip_data, aes(mean_wind_speed_mph)) + 
+        geom_bar(stat = "count", aes(fill = weekend), position = "dodge") +
+        facet_wrap(~subscription_type, scales = "free_y") +
+        ylab("Bicycle trips") +
+        xlab("Average wind speed for the day") + 
+        ggtitle("Wind Speed and.Bicycle Trips") +
+        theme_light()
+    trip_data$events <- as.character(trip_data$events)
+    trip_data$events <- factor(trip_data$events,labels = c("No Fog or Rain", "Fog", "Fog and Rain", "Rain", "Thunderstorm"))
+populationcount <- aggregate(city ~ events * date, data = trip_data, count) %>%
++             summarise(events = count(events))
+obscounts <- trip_data %>% summarise(events = count(events))
+a <- obscounts[,1]
+b <- populationcount[,1]
+ratio <- a[,2]/b[,2]
+c <- c("No Fog or Rain", "Fog", "Fog and Rain", "Rain", "Thunderstorm")
+ratio <- as.data.frame(cbind(ratio, c))
+ ratio2 <- rbind(ratio, c)
+options(repr.plot.width=7, repr.plot.height=4)
+ggplot(ratio, aes(c,ratio)) +
+           geom_bar(stat = "identity", fill = "green") +
+            xlab("weather pattern") +
+            ylab("Mean bicycle trips") +
+            ggtitle("How sensitivity of Riders w.r.t to weather") +
+            theme_light()
+avg <- aggregate(duration ~ mean_temperature_f, data = daytrips, mean)
+ggplot(data = avg, aes(mean_temperature_f, duration)) +
+      geom_point(size = 4, color = "blue", alpha = 0.8) +
+      geom_smooth(se = FALSE) +
+      ggtitle("Average trip duration for mean temperatures") +
+      ylab("Mean Duration of bicycle trip in Sec.") +
+      xlab("Mean Temperature (In Fahrenheit)") +
+      coord_cartesian(ylim = c(400, 1500))
+save.image("C:\\Users\\shashank\\Desktop\\Q3")
+save.image("C:\\Users\\shashank\\Desktop\\group60")
+trip_data$start_date <- mdy_hm(trip_data$start_date)
+trip_data$end_date <- mdy_hm(trip_data$end_date)
+trip_data$date <- trip_data$start_date
+trip_data$date <- as.Date(trip_data$date)
+trip_data$date <- as.Date(trip_data$start_date)
+trip_data$station_id <- trip_data$id
+trip_data$station_id2 <- trip_data$start_station_id
+trip_data <- left_join(trip_data, station_data, by = c ("id"))
+ggplot(data = date_freq, aes(date, n,fill=date)) + geom_bar(stat="identity") + geom_smooth() + ggtitle("Everyday Trips") + ylab("Total Bicycle Trips") + xlab("Dates")
+library(dplyr) 
+library(ggplot2) 
+library(lubridate) 
+trip_data <- read.csv("trip.csv")
+station_data <- read.csv("station.csv")
+trip_data$start_date <- mdy_hm(trip_data$start_date)
+trip_data$end_date <- mdy_hm(trip_data$end_date)
+trip_data$date <- trip_data$start_date
+trip_data$date <- as.Date(trip_data$date)
+trip_data$date <- as.Date(trip_data$start_date)
+trip_data$station_id <- trip_data$id
+trip_data$station_id2 <- trip_data$start_station_id
+trip_data <- left_join(trip_data, station_data, by = c ("id"))
+ggplot(data = date_freq, aes(date, n,fill=date)) + geom_bar(stat="identity") + geom_smooth() + ggtitle("Everyday Trips") + ylab("Total Bicycle Trips") + xlab("Dates")
+ggplot(data = date_freq, aes(date, n,fill=date)) + geom_bar(stat="identity") + geom_smooth() + ggtitle("Everyday Trips") + ylab("Total Bicycle Trips") + xlab("Dates")daily_freq <- as.data.frame(table(wday(trip_data$date, label = TRUE)))
+ggplot(data = daily_freq, aes(x = Var1, Freq, fill=Var1)) + geom_bar(stat="identity",position=position_dodge()) + ggtitle("Daily Total Trips ") + ylab("Total Bicycle Trips") + xlab("Days Of Week")
+monthly_frequency <- as.data.frame(table(lubridate::month(trip$date, label = TRUE)))
+ggplot(data = monthly_frequency, aes(x = Months, Freq, fill= Months)) +
+        geom_bar(stat="identity") +
+        ggtitle("Total Number of Trips by Month ") +
+        ylab("Total Number of Bicycle Trips") +
+        xlab("Month of Year")
+date_freq <- mutate(date_freq, weekend = (wday(date_freq$date)== 1 |wday(date_freq$date) == 7))
+ggplot(data = date_freq, aes(date, n),alpha = 0.9, size = 1.5, position = position_jitter(width = 0.25, height = 0)) + geom_bar(stat="identity", aes(color = weekend), size = 2, alpha = 0.55)+facet_grid(. ~ weekend) + ggtitle("Per Day Trips") + ylab("Total Bicycle Trips") + xlab("Dates from 2013 to 2015")
+trip2 <- ymd_hms(trip_data$start_date) 
+trip3 <- hour(trip2) + minute(trip2)/60
+trip_data$daytime <- trip3 
+rm(trip2, trip3)
+ggplot(trip_data, aes(daytime)) + 
+geom_histogram(binwidth = 0.25, color="blue") + 
+geom_vline(xintercept = 8.5, color = 'black') + 
+geom_vline(xintercept = 17, color = 'black', alpha = 0.9) + annotate("text", x =9,y =27000,label = "9:00 AM", color = "red",size = 7) +
+annotate("text", x =17,y =27000,label ="5:00 PM", color = "red", size = 7) + xlab("Timings with 15min intervals") + 
+ylab("Total number of bicycle trips") + 
+ggtitle("Daily Bicycle data according to time.")
+trip <- mutate(trip_data, weekend = (wday(trip_data$date) == 1 | wday(trip_data$date) == 7)) 
+trip_data$weekend <- factor(trip_data$weekend, labels = c("Weekday", "Weekend"))
+save.image("C:\\Users\\shashank\\Desktop\\q4")
+q()
