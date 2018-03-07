@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DeptDropDownController">
+   <children>
+      <AnchorPane layoutY="-7.0" prefHeight="543.0" prefWidth="621.0">
+         <children>
+            <Label layoutX="73.0" layoutY="51.0" prefHeight="33.0" prefWidth="354.0" text="Welcome to Shopping Center Application" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Text layoutX="457.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as Customer" />
+            <Label layoutX="73.0" layoutY="186.0" prefHeight="17.0" prefWidth="300.0" text="Please make selection to shop by Department:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="choiceBoxDept" layoutX="73.0" layoutY="235.0" prefWidth="150.0" />
+            <Button fx:id="confirmButtonDept" layoutX="280.0" layoutY="236.0" mnemonicParsing="false" onAction="#clickConfirmButtonDept" text="Confirm" />
+            <MenuBar accessibleRole="MENU_ITEM" layoutX="73.0" layoutY="108.0" prefHeight="25.0" prefWidth="522.0">
+               <menus>
+                  <Menu fx:id="home" mnemonicParsing="false" text="Home">
+                     <items>
+                        <MenuItem fx:id="home" mnemonicParsing="false" onAction="#clickHome" text="My Home" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Department">
+                     <items>
+                        <MenuItem fx:id="menuShopByDept" mnemonicParsing="false" onAction="#clickShopByDept" text="Shop By Department" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Classification">
+                     <items>
+                        <MenuItem fx:id="menuShopByClass" mnemonicParsing="false" onAction="#clickShopByClass" text="Shop By Classification" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Item">
+                     <items>
+                        <MenuItem fx:id="menuShopByItem" mnemonicParsing="false" onAction="#clickShopByItem" text="Shop By Item" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="My Profile">
+                     <items>
+                        <MenuItem fx:id="Logout" mnemonicParsing="false" onAction="#clickLogout" text="Logout" />
+                        <MenuItem fx:id="menuViewCart" mnemonicParsing="false" onAction="#clickMenuViewCart" text="View Cart" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

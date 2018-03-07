@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="502.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemController">
+   <children>
+      <Label layoutX="83.0" layoutY="148.0" prefHeight="33.0" prefWidth="253.0" text="Please edit item details below !" textAlignment="CENTER">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="addItemButton" layoutX="505.0" layoutY="193.0" mnemonicParsing="false" onAction="#buttonAddItem" prefHeight="25.0" prefWidth="57.0" text="Add" />
+      <Label fx:id="addItemLabel" layoutX="83.0" layoutY="189.0" prefHeight="33.0" prefWidth="84.0" text="Add new Item:" textAlignment="CENTER" />
+      <TextField fx:id="addItemText" layoutX="174.0" layoutY="193.0" prefHeight="25.0" prefWidth="113.0" promptText="Enter item name" />
+      <Button fx:id="viewItemButton" layoutX="258.0" layoutY="466.0" mnemonicParsing="false" onAction="#buttonViewItem" prefHeight="25.0" prefWidth="150.0" text="View all Items" />
+      <Label fx:id="deleteItemLabel" layoutX="83.0" layoutY="306.0" prefHeight="33.0" prefWidth="157.0" text="Delete Existing Item:" textAlignment="CENTER" />
+      <TextField fx:id="deleteItemTextBox" layoutX="258.0" layoutY="310.0" prefHeight="25.0" prefWidth="201.0" promptText="Please enter Item name to delete" />
+      <Button fx:id="deleteItemButton" layoutX="505.0" layoutY="310.0" mnemonicParsing="false" onAction="#buttonDeleteItem" prefHeight="25.0" prefWidth="57.0" text="Delete" />
+      <Label fx:id="oldItemLabel" layoutX="83.0" layoutY="358.0" prefHeight="33.0" prefWidth="157.0" text="Existing Item name:" textAlignment="CENTER" />
+      <Label fx:id="newItemLabel" layoutX="83.0" layoutY="382.0" prefHeight="33.0" prefWidth="132.0" text="New Item name:" textAlignment="CENTER" />
+      <TextField fx:id="oldItemTextBox" layoutX="258.0" layoutY="362.0" prefHeight="25.0" prefWidth="201.0" promptText="Please enter Item name to edit" />
+      <TextField fx:id="newItemTextBox" layoutX="258.0" layoutY="386.0" prefHeight="25.0" prefWidth="201.0" promptText="Please enter new Item name" />
+      <Label fx:id="viewItemsLabel" layoutX="83.0" layoutY="462.0" prefHeight="33.0" prefWidth="132.0" text="View all Items:" textAlignment="CENTER" />
+      <Button fx:id="editItemButton" layoutX="505.0" layoutY="386.0" mnemonicParsing="false" onAction="#buttonEditItem" prefHeight="25.0" prefWidth="57.0" text="Edit" />
+      <TextArea fx:id="addDescTextArea" layoutX="174.0" layoutY="222.0" prefHeight="44.0" prefWidth="289.0" promptText="Enter description for item" />
+      <TextField fx:id="addItemCostText" layoutX="338.0" layoutY="193.0" prefHeight="25.0" prefWidth="124.0" promptText="Enter item cost" />
+      <Label fx:id="currency" layoutX="328.0" layoutY="189.0" prefHeight="33.0" prefWidth="12.0" text="\$" textAlignment="CENTER" />
+      <TextField fx:id="addItemQuantityText" layoutX="174.0" layoutY="272.0" prefHeight="25.0" prefWidth="64.0" promptText="Quantity" />
+      <TextField fx:id="addItemRewardText" layoutX="287.0" layoutY="272.0" prefHeight="25.0" prefWidth="64.0" promptText="Points" />
+      <TextField fx:id="addItemDeptText" layoutX="389.0" layoutY="272.0" prefHeight="25.0" prefWidth="77.0" promptText="Dept Name" />
+      <Label layoutX="83.0" layoutY="46.0" prefHeight="33.0" prefWidth="354.0" text="Welcome to Shopping Center Application" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <MenuBar accessibleRole="MENU_ITEM" layoutX="79.0" layoutY="107.0" prefHeight="25.0" prefWidth="444.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Home">
+               <items>
+                  <MenuItem fx:id="adminMyHome" mnemonicParsing="false" onAction="#clickAdminMyHome" text="My Home" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Departments">
+               <items>
+                  <MenuItem fx:id="menuAddDepartment" mnemonicParsing="false" onAction="#clickAddDepartment" text="Add Department" />
+                  <MenuItem fx:id="menuEditDepartment" mnemonicParsing="false" onAction="#clickEditDepartment" text="Edit Department" />
+                  <MenuItem fx:id="menuDeleteDepartment" mnemonicParsing="false" onAction="#clickDeleteDepartment" text="Delete Department" />
+                  <MenuItem fx:id="menuViewDepartment" mnemonicParsing="false" onAction="#clickViewDepartment" text="View Department" />
+               </items>
+            </Menu>
+            <Menu fx:id="menuBarClassifications" mnemonicParsing="false" text="Classifications">
+               <items>
+                  <MenuItem fx:id="menuClassifications" mnemonicParsing="false" onAction="#clickMenuClassifications" text="Edit Classifications" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Items">
+               <items>
+                  <MenuItem fx:id="menuItems" mnemonicParsing="false" onAction="#clickMenuItems" text="Edit Items" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Options">
+               <items>
+                  <MenuItem fx:id="menuLogout" mnemonicParsing="false" onAction="#menuLogout" text="Logout" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Text layoutX="413.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as admin" />
+   </children>
+</AnchorPane>

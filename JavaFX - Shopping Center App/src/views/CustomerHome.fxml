@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewItemController">
+   <children>
+      <AnchorPane layoutY="-7.0" prefHeight="543.0" prefWidth="621.0">
+         <children>
+            <MenuBar accessibleRole="MENU_ITEM" layoutX="73.0" layoutY="106.0" prefHeight="25.0" prefWidth="522.0">
+               <menus>
+                  <Menu fx:id="home" mnemonicParsing="false" text="Home">
+                     <items>
+                        <MenuItem fx:id="home" mnemonicParsing="false" onAction="#clickHome" text="My Home" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="Department">
+                     <items>
+                        <MenuItem fx:id="menuShopByDept" mnemonicParsing="false" onAction="#clickShopByDept" text="Shop By Department" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Classification">
+                     <items>
+                        <MenuItem fx:id="menuShopByClass" mnemonicParsing="false" onAction="#clickShopByClass" text="Shop By Classification" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Item">
+                     <items>
+                        <MenuItem fx:id="menuShopByItem" mnemonicParsing="false" onAction="#clickShopByItem" text="Shop By Item" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="My Profile">
+                     <items>
+                        <MenuItem fx:id="Logout" mnemonicParsing="false" onAction="#clickLogout" text="Logout" />
+                        <MenuItem fx:id="menuViewCart" mnemonicParsing="false" onAction="#clickMenuViewCart" text="View Cart" />
+                     </items></Menu>
+               </menus>
+            </MenuBar>
+            <Label layoutX="73.0" layoutY="51.0" prefHeight="33.0" prefWidth="354.0" text="Welcome to Shopping Center Application" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Text layoutX="457.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logged in as Customer" />
+            <TableView fx:id="tableAllItems" layoutX="73.0" layoutY="188.0" prefHeight="194.0" prefWidth="522.0" />
+            <Label layoutX="73.0" layoutY="143.0" prefHeight="33.0" prefWidth="278.0" text="Below are the available items to shop" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
